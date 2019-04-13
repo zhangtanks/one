@@ -1,0 +1,360 @@
+<!DOCTYPE html><html>    <head><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0"><meta charset="utf-8"><script type="text/javascript">
+
+window._points = [+new Date()];
+
+
+function wx_main(mod) {
+  window._points && (window._points[3] = +new Date());
+};
+
+window.wx = {
+  uin: "" || "0",
+  lang: "zh_CN"
+};
+</script><script onerror="wx_loaderror(this)" crossorigin type="text/javascript" src="https://res.wx.qq.com/mpres/zh_CN/htmledition/js/common/wx/jserr41f237.js"></script><script type="text/javascript">
+!function(n){
+function r(r){
+r&&(n.TryJs._onThrow=r),t();
+}
+function t(){
+c(),u(),f();
+}
+function e(n,r){
+return function(){
+for(var t,e,i=[],o=0,a=arguments.length;a>o;o++)t=arguments[o],s(t)&&(e=m(t))&&(t.tryWrap=e)&&(t=e),
+i.push(t);
+return n.apply(r||this,i);
+};
+}
+function i(n){
+var r,t;
+for(r in n)t=n[r],s(t)&&(n[r]=m(t));
+return n;
+}
+function o(n,r){
+var t;
+for(t in r)n[t]=r[t];
+return n;
+}
+function s(n){
+return"function"==typeof n;
+}
+function a(n){
+return function(){
+for(var r,t=[],e=0,i=arguments.length;i>e;e++)r=arguments[e],s(r)&&(r=m(r)),t.push(r);
+return n.apply(this,t);
+};
+}
+function c(){
+if(n.TryJs.isCatchJquery)return n.TryJs;
+var r=h.jQuery;
+if(r&&r.event){
+var t=r.event.add,o=r.ajax,a=r.event.remove;
+if(t&&(r.event.add=e(t),r.event.remove=function(){
+for(var n,r=[],t=0,e=arguments.length;e>t;t++)n=arguments[t],s(n)&&(n=n.tryWrap),
+r.push(n);
+return a.apply(this,r);
+}),o&&(r.ajax=function(n,t){
+return t||(t=n,n=void 0),i(t),n?o.call(r,n,t):o.call(r,t);
+}),jQuery.zepto){
+var c=r.fn.on,u=r.fn.off;
+r.fn.on=e(c),r.fn.off=function(){
+for(var n,r=[],t=0,e=arguments.length;e>t;t++)n=arguments[t],s(n)&&(n=n.tryWrap),
+r.push(n);
+return u.apply(this,r);
+};
+}
+return n.TryJs.isCatchJquery=!0,n.TryJs;
+}
+}
+function u(){
+if(n.TryJs.isCatchCmd)return n.TryJs;
+var r=(h.require,h.define);
+return h.seajs&&r&&(h.define=function(){
+for(var n,t=[],e=0,i=arguments.length;i>e;e++)n=arguments[e],s(n)&&(n=d(n,arguments[0]),
+n.toString=function(n){
+return function(){
+return n.toString();
+};
+}(arguments[e])),t.push(n);
+return r.apply(this,t);
+},h.seajs.use=a(h.seajs.use),o(h.define,r),n.TryJs.isCatchCmd=!0),n.TryJs;
+}
+function f(){
+if(n.TryJs.isCatchTimeout)return n.TryJs;
+var r=function(n){
+return function(r,t){
+if("string"==typeof r)try{
+r=new Function(r);
+}catch(e){
+throw e;
+}
+var i=[].slice.call(arguments,2);
+return r=m(r,i.length&&i),n(r,t);
+};
+};
+return h.setTimeout=r(h.setTimeout),h.setInterval=r(h.setInterval),n.TryJs.isCatchTimeout=!0,
+n.TryJs;
+}
+var h=window;
+n.TryJs={
+isCatchTimeout:!1,
+isCatchJquery:!1,
+isCatchCmd:!1,
+_onThrow:function(n){
+n.stack&&console&&console.error&&console.error(n.stack);
+}
+},n.BadJs&&"function"==typeof n.BadJs.onThrow&&r(function(r){
+n.BadJs.onThrow.call(n.BadJs,r);
+});
+var l,m=function(r,t){
+return function(){
+try{
+return r.apply(this,t||arguments);
+}catch(e){
+if(n.TryJs._onThrow(e),!l){
+var i=h.onerror;
+h.onerror=function(){},l=setTimeout(function(){
+h.onerror=i,l=null;
+},50);
+}
+throw e;
+}
+};
+},d=function(r,t){
+return function(){
+try{
+return r.apply(this,arguments);
+}catch(e){
+if(n.TryJs._onThrow(e,t),!l){
+var i=h.onerror;
+h.onerror=function(){},l=setTimeout(function(){
+h.onerror=i,l=null;
+},50);
+}
+throw e;
+}
+};
+};
+return n.TryJs=o(n.TryJs,{
+init:r,
+catchJquery:c,
+catchCmd:u,
+run:t
+});
+}(window.WX_BJ_REPORT=window.WX_BJ_REPORT||{}),function(n){
+function r(n,r,t,e,i,o){
+this.name=n||"",this.message=r||"",this.file=t||"",this.line=e||"",this.col=i||"",
+this.stack=o&&o.stack;
+}
+function t(n){
+n._info="";
+var r=e(n),t={
+name:n.name,
+key:n.message,
+msg:n.message,
+stack:r.info,
+file:r.file,
+line:r.line,
+col:r.col,
+client_version:"",
+_info:n._info
+};
+return t;
+}
+function e(n){
+var r=n.stack||"",t={
+info:r,
+file:n.file||"",
+line:n.line||"",
+col:n.col||""
+};
+if(""==t.file){
+var e=r.split(/\bat\b/);
+if(e&&e[1]){
+var i=/(https?:\/\/[^\n]+)\:(\d+)\:(\d+)/.exec(e[1]);
+i&&(i[1]&&i[1]!=t.file&&(n._info+=" [file: "+t.file+" ]",t.file=i[1]),i[2]&&i[2]!=t.line&&(n._info+=" [line: "+t.line+" ]",
+t.file=i[2]),i[3]&&i[3]!=t.col&&(n._info+=" [col: "+t.col+" ]",t.file=i[3]));
+}
+}
+return t&&t.file&&t.file.length>0&&(t.info=t.info.replace(new RegExp(t.file.split("?")[0],"gi"),"__FILE__")),
+t.info=t.info.replace(/http(s)?\:[^:\n]*\//gi,"").replace(/\n/gi,""),t;
+}
+var i="BadjsWindowError",o=function(n,r){
+for(var t in r)n[t]=r[t];
+return n;
+};
+return n.BadJs={
+uin:0,
+mid:"",
+_cache:{},
+_info:{},
+_hookCallback:null,
+"throw":function(n,r){
+this.onError(n,r);
+var t=window.onerror;
+throw window.onerror=function(){},timeoutkey=setTimeout(function(){
+window.onerror=t,timeoutkey=null;
+},50),n;
+},
+onError:function(r,e){
+if(1!=r.BADJS_EXCUTED){
+r.BADJS_EXCUTED=!0;
+var i=t(r);
+if(i.uin=this.uin,i.mid=this.mid,e&&(i=o(i,e)),r._info&&(i.msg+=" || "+r._info),
+"{}"!=JSON.stringify(this._info)&&(i.msg+=" || "+JSON.stringify(this._info)),"function"!=typeof this._hookCallback||this._hookCallback(i)!==!1)return this._send(i),
+n.BadJs;
+}
+},
+_onError:function(n,t,e,o,s){
+this.onError(new r(i,n,t,e,o,s));
+},
+init:function(r,t){
+return this.uin=r||this.uin,this.mid=t||this.mid,n.BadJs;
+},
+hook:function(r){
+return this._hookCallback=r,n.BadJs;
+},
+_send:function(r){
+if(this.mid){
+var t=[r.mid,r.name,r.key].join("|");
+if(!this._cache||!this._cache[t])return this._cache[t]=!0,this._xhr(r),n.BadJs;
+}
+},
+_xhr:function(n){
+var r;
+if(window.ActiveXObject)try{
+r=new ActiveXObject("Msxml2.XMLHTTP");
+}catch(t){
+try{
+r=new ActiveXObject("Microsoft.XMLHTTP");
+}catch(e){
+r=!1;
+}
+}else window.XMLHttpRequest&&(r=new XMLHttpRequest);
+r.open("POST","https://badjs.weixinbridge.com/report",!0),r.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8"),
+r.onreadystatechange=function(){};
+var i="";
+for(var o in n)o&&n[o]&&(i+=[o,"=",encodeURIComponent(n[o]),"&"].join(""));
+r.send(i.slice(0,-1));
+},
+_hack:function(n){
+var r=new Image;
+r.src="https://mp.weixin.qq.com/misc/jslog?id=68&content="+n.key+"&level=error";
+var t=new Image;
+t.src="https://mp.weixin.qq.com/misc/jslog?id=65&content="+n.key+"&level=error";
+var e=new Image;
+e.src="https://badjs.weixinbridge.com/badjs?id=7&msg="+encodeURIComponent(n.key)+"&uin="+(wx&&wx.uin)+"&from="+encodeURIComponent(location.href)+"&level=4";
+},
+report:function(n,t,e){
+return this.onError(new r(n,t),e),this;
+},
+mark:function(n){
+this._info=o(this._info,n);
+},
+nocache:function(){
+return this._cache=!1,n.BadJs;
+}
+},n.TryJs&&"function"==typeof n.TryJs.init&&(n.TryJs.init(function(r){
+n.BadJs.onError.call(n.BadJs,r);
+}),window.onerror=function(){
+n.BadJs._onError.apply(n.BadJs,arguments);
+}),r.prototype=new Error,r.prototype.constructor=r,n.BadJs;
+}(window.WX_BJ_REPORT=window.WX_BJ_REPORT||{});
+</script> <script type="text/javascript">
+
+window.wx_loaderror = function(ele) {
+  var _img = new Image();
+  var key = 63;
+  if (ele && ele.tagName && ele.tagName.toLowerCase() == "script") {
+    key = 64;
+    
+  }
+  _img.src = "https://badjs.weixinbridge.com/badjs?id=11&uin=" + (wx && wx.uin) + "&msg=" + encodeURIComponent("link_error:" + (ele && (ele.href || ele.src))) + "|link&from=" + encodeURIComponent(location.href) + "&level=4&_t=" + (+new Date);
+
+  var key_img = new Image();
+  key_img.src = "https://mp.weixin.qq.com/misc/jslog?id=" + key + "&content=link_error&level=error";
+  if (typeof WX_BJ_REPORT != "undefined" && WX_BJ_REPORT.BadJs && typeof WX_BJ_REPORT.BadJs.report == "function") {
+    if (ele && ele.tagName && ele.tagName.toLowerCase() == "script") {
+      WX_BJ_REPORT.BadJs.report("jsLoadedError", ele.href || ele.src, { mid: "mpResourceMonitor" })
+    } else {
+      WX_BJ_REPORT.BadJs.report("cssLoadedError", ele.href || ele.src, { mid: "mpResourceMonitor" })
+    }
+  }
+};
+</script><title>微信公众平台</title><link rel="shortcut icon" type="image/x-icon" href="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico"><link rel="mask-icon" href="https://res.wx.qq.com/a/wx_fed/assets/res/MjliNWVm.svg" color="#4C4C4C"><link rel="apple-touch-icon-precomposed" href="https://res.wx.qq.com/a/wx_fed/assets/res/OTE0YTAw.png"><link onerror="wx_loaderror(this)" rel="stylesheet" type="text/css" href="https://res.wx.qq.com/mpres/zh_CN/htmledition/comm_htmledition/style/base/layout_head3b07a1.css" /><link onerror="wx_loaderror(this)" rel="stylesheet" type="text/css" href="https://res.wx.qq.com/mpres/zh_CN/htmledition/comm_htmledition/style/base/base451259.css" /><link onerror="wx_loaderror(this)" rel="stylesheet" type="text/css" href="https://res.wx.qq.com/mpres/zh_CN/htmledition/comm_htmledition/style/base/lib3b07a1.css" /><link onerror="wx_loaderror(this)" rel="stylesheet" type="text/css" href="https://res.wx.qq.com/mpres/zh_CN/htmledition/comm_htmledition/style/base/weui-desktop_skin44a538.css" />        <link onerror="wx_loaderror(this)" rel="stylesheet" type="text/css" href="https://res.wx.qq.com/mpres/zh_CN/htmledition/comm_htmledition/style/page/page_error3a7b39.css"/>    </head>    <body class="zh_CN weui-desktop-page_simple page_error page_timeout">    <div class="mp-head" id="header"><script type="text/javascript">
+    
+    window._points&&(window._points[1]=+new Date());
+</script><div class="weui-desktop-head">    <div class="weui-desktop-head__inner">      <div class="weui-desktop-layout">        <div class="weui-desktop-layout__side">          <h1 class="weui-desktop-logo"><a href="/" title="微信公众平台"></a></h1>        </div>        <div class="weui-desktop-layout__extra">                                                        <div class="weui-desktop-account">                                                                                        </div>                                        </div>      </div>    </div></div><script type="text/javascript">
+(function() {
+  var isShow = false,
+      timer;
+  var btnAccountOpr = document.getElementById('js_btn_account_opr'),
+      divAccountOpr = document.getElementById('js_div_account_opr'),
+      divContainer = document.body;
+  if (!!btnAccountOpr && !!divAccountOpr) {
+    divAccountOpr.style.display = 'none';
+    var onShow = function() {
+      clearTimeout(timer);
+      divAccountOpr.style.display = 'block';
+      isShow = true;
+    };
+    var onHide = function() {
+      clearTimeout(timer);
+      timer = setTimeout(function() {
+        divAccountOpr.style.display = 'none';
+        isShow = false;
+      }, 300);
+    };
+    if (!!window.addEventListener) {
+      btnAccountOpr.addEventListener('mouseenter', onShow);
+      btnAccountOpr.addEventListener('mouseleave', onHide);
+      divAccountOpr.addEventListener('mouseenter', onShow);
+      divAccountOpr.addEventListener('mouseleave', onHide);
+    } else {
+      btnAccountOpr.attachEvent('onmouseenter', onShow);
+      btnAccountOpr.attachEvent('onmouseleave', onHide);
+      divAccountOpr.attachEvent('onmouseenter', onShow);
+      divAccountOpr.attachEvent('onmouseleave', onHide);
+    }
+  }
+})();
+</script></div>        <div id="body" class="mp-body">            <div class="weui-desktop-layout weui-desktop-layout_global">                <div class="weui-desktop-layout__main">                    <div class="weui-desktop-layout__main__area">                        <div class="weui-desktop-layout__main__inner">                            <div class="weui-desktop-panel">                                <div class="page_error_msg">                                    <div class="inner">                                        <span class="icon_wrp">                                            <i class="icon_page_error"></i>                                        </span>                                        <div class="msg_content">                                                                                        <div id="_js_announcement"></div><script type="text/html" id="_js_announcement_tpl">
+  {each announcement_list as item i}
+    <div class="page_msg announcement_msg mini{if item.type === 0} with_closed{/if}">
+      <div class="inner">
+        <span class="msg_icon_wrp"><i class="icon_msg_mini {if item.type === 0}info{else}warn{/if}"></i></span>
+        <div class="msg_content">
+          <p>{=item.content}</p>
+        </div>
+        {if item.type === 0}
+          <span class="msg_closed js_msg_close">关闭</span>
+        {/if}
+      </div>
+    </div>
+  {/each}
+</script>                                                    <h2>                <span id="info"></span>                                请重新<a id='jumpUrl' href='/'>登录</a>                        </h2>        <script>
+        var pathname = location.pathname,
+        search = location.search;
+        var jumpUrlDom = document.getElementById('jumpUrl');
+        if (jumpUrlDom) {
+                jumpUrlDom.setAttribute('href','/cgi-bin/loginpage?url='+encodeURIComponent(pathname + search));
+        }
+        
+        var ret="200003";
+        if(ret=="280001"){
+                document.getElementById('info').innerHTML="当前帐号密码已修改，如非帐号管理员本人操作修改，请尽快修改密码。";
+        }else if(ret=="280002"){
+                document.getElementById('info').innerHTML="当前帐号登录邮箱已修改，如非帐号管理员本人操作修改，请重新找回。";
+        }else if(ret=="280003"){
+                document.getElementById('info').innerHTML="当前帐号密码已修改，如非帐号管理员本人操作修改，请重新找回。";
+        }else if(ret=="200003"){
+                document.getElementById('info').innerHTML="登录超时，";
+                
+        }else if(ret=="430002"){
+                document.getElementById('info').innerHTML="申诉已过期";
+        }
+        </script>                                          </div>                                        </div>                                      </div>                                    </div>                                  </div>                                </div>                            </div>                        </div>                    </div>                </div>            </div>        </div>        <div class="mp-foot" id="footer">  <div class="weui-desktop-foot">    <div class="weui-desktop-foot__info">      <div class="weui-desktop-links weui-desktop-link-group weui-desktop-link-group_split">                <a class="weui-desktop-link" href="http://www.tencent.com/zh-cn/index.shtml" target="_blank">关于腾讯</a>        <a class="weui-desktop-link" href="/cgi-bin/readtemplate?t=home/agreement_tmpl&type=info&lang=zh_CN&token=" target="_blank">服务协议</a>        <a class="weui-desktop-link" href="/mp/opshowpage?action=main&lang=zh_CN&token=" target="_blank">运营中心</a>        <a class="weui-desktop-link" href="/cgi-bin/opshowpage?action=dispelinfo&lang=zh_CN&begin=1&count=9" target="_blank">辟谣中心</a>        <a class="weui-desktop-link" href="http://kf.qq.com/product/weixinmp.html" target="_blank">腾讯客服</a>                                        <a class="weui-desktop-link" href="/acct/infringementlogin?action=getkey&lang=zh_CN" target="_blank">侵权投诉</a>                      </div>    </div>    <div class="weui-desktop-foot__extra">            <p class="weui-desktop-link">Copyright &copy; 2012-2019 Tencent. All Rights Reserved.</p>          </div>  </div></div><script type="text/javascript">
+
+window._points&&(window._points[2]=+new Date());
+</script></body></html>
